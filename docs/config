@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Config | SiteFS</title>
+  
+  <link rel="stylesheet" type="text/css" href="/styles/app.css" />
+</head>
+<body>
+  <nav class="nav">
+    <section class="nav-left nav-section">
+      <h1 class="title primary-nav-item nav-item">
+        <a href="/">SiteFS</a>
+      </h1>
+    </section>
+
+    <section class="nav-right nav-section">
+      <div class="nav-item">
+        <a href="/docs" class="link">Docs</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="http://github.com/tal/sitefs" class="link">Github</a>
+      </div>
+    </section>
+  </nav>
+
+  <section class="container ">
+    <article class="documentation-page">
+  <h1>Config</h1>
+
+<p>There are several different ways ot build the site, there's also several commands you can run<br>
+including one to sync your site to s3.</p>
+
+<h2>Flags</h2>
+
+<p>All configuration variables that can be passed to the command line can also be defined in a config<br>
+file named <code>.sitefs-config.yml</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>CLI</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>port</code></td>
+<td>yes</td>
+<td>What port should the dev server run on</td>
+<td>8050</td>
+</tr>
+<tr>
+<td><code>force</code></td>
+<td>yes</td>
+<td>Rebuild or upload all files regardless of cache status</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>index_format</code></td>
+<td>yes</td>
+<td>How to generate the html files so that they're served without a <code>.html</code> extension</td>
+<td>all-index</td>
+</tr>
+<tr>
+<td><code>aws_region</code></td>
+<td></td>
+<td>When uploading what region the S3 instance is</td>
+<td></td>
+</tr>
+<tr>
+<td><code>aws_s3_bucket</code></td>
+<td></td>
+<td>Bucket to upload the files to</td>
+<td></td>
+</tr>
+<tr>
+<td><code>aws_access_key_id</code></td>
+<td></td>
+<td>Access key for using S3 api</td>
+<td></td>
+</tr>
+<tr>
+<td><code>aws_secret_access_key</code></td>
+<td></td>
+<td>Secret key for using S3 api</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ignore_patterns</code></td>
+<td></td>
+<td>File patterns to not upload or build</td>
+<td><a href="...">Link</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Index Format</h3>
+
+<p>Basic fileservers often require <code>filename.html</code> to be accessed via <code>mysite.com/filename</code>. In order to allow the files to be<br>
+served with other means you can build them into different formats.</p>
+
+<table>
+<thead>
+<tr>
+<th>Format Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all-index</code></td>
+<td>Unless it's an index file create a new folder with <code>filename/index.html</code>
+</td>
+</tr>
+<tr>
+<td><code>github</code></td>
+<td>Creates <code>filename.html</code>, github pages allows these urls to be accessed simply</td>
+</tr>
+<tr>
+<td><code>aws</code></td>
+<td>Creates a file without the extension <code>filename</code>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Commands</h2>
+
+<p>There are a few commands you can tell <code>sitefs</code> to do.</p>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>build</code></td>
+<td>Build the asset files and return</td>
+</tr>
+<tr>
+<td><code>watch</code></td>
+<td>(default) Build and watch the directory for chanages. Also spawns a server for development, don't use this for production</td>
+</tr>
+<tr>
+<td><code>upload</code></td>
+<td>Will sync all files to the S3 bucket specified in the config file</td>
+</tr>
+<tr>
+<td><code>clean</code></td>
+<td>Deletes all generated files, useful if you're changingwhat index format you're using</td>
+</tr>
+</tbody>
+</table>
+</article>
+
+  </section>
+
+  <section class="footer">
+    <div class="copyright">
+      The contents of this website are
+      © 2017 under the terms of the
+      <a href="https://github.com/tal/sitefs/blob/master/LICENSE">MIT License</a>.
+    </div>
+  </section>
+</body>
+
+</html>

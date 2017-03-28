@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Markdown Pages | SiteFS</title>
+  
+  <link rel="stylesheet" type="text/css" href="/styles/app.css" />
+</head>
+<body>
+  <nav class="nav">
+    <section class="nav-left nav-section">
+      <h1 class="title primary-nav-item nav-item">
+        <a href="/">SiteFS</a>
+      </h1>
+    </section>
+
+    <section class="nav-right nav-section">
+      <div class="nav-item">
+        <a href="/docs" class="link">Docs</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="http://github.com/tal/sitefs" class="link">Github</a>
+      </div>
+    </section>
+  </nav>
+
+  <section class="container ">
+    <article class="documentation-page">
+  <h1>Markdown Pages</h1>
+
+<p>Markdown pages let you generate pages using markdown. They generate <a href="/docs/page-object">page objects</a><br>
+and have their attributes set by an optional yaml block on the top of the file.</p>
+
+<h2>Attribute block</h2>
+
+<p>You can set the attributes of the page via a block of YAML at the top of the file. If you place a<br>
+<code>---</code> on the first line, anything between that and the next <code>---</code> will get parsed by as yaml and<br>
+set as atributes.</p>
+
+<p>Some examples of built in features are setting <code>published</code> to any date or datetime string that YAML<br>
+supports will publish the document to that date.</p>
+
+<p><code>tags</code> is also a standard YAML array that you can use.</p>
+
+<pre class="highlight highlight-yaml"><code><span class="nn">---</span>
+<span class="s">published</span><span class="pi">:</span> <span class="s">2016-12-21 10:00 EST</span>
+<span class="s">tags</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">_blog post</span>
+<span class="pi">-</span> <span class="s">apple</span>
+<span class="pi">-</span> <span class="s">review</span>
+<span class="pi">-</span> <span class="s">AppleTV</span>
+<span class="nn">---</span>
+
+<span class="c1"># My review of the new AppleTV</span>
+<span class="s">Lorem ipsum...</span>
+</code></pre>
+
+
+<h3>Markdown page templates</h3>
+
+<p>Because often the content of a blog post or whatever you're trying to output from markdown<br>
+will need extra chrome around it (to show what tags it has, it's publishing date, etc),<br>
+markdown pages have templates that they use in addition to the standard templates.</p>
+
+<p>Read up on <a href="/docs/templates">how templates work</a> in general because the markdown layouts work the same<br>
+way. The only difference is that if you have a <code>_layout.md.html.erb</code> file the page will be rendered<br>
+within that before it's passed off to the standard set of templates.</p>
+</article>
+
+  </section>
+
+  <section class="footer">
+    <div class="copyright">
+      The contents of this website are
+      © 2017 under the terms of the
+      <a href="https://github.com/tal/sitefs/blob/master/LICENSE">MIT License</a>.
+    </div>
+  </section>
+</body>
+
+</html>

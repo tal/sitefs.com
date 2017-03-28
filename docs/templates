@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Templates | SiteFS</title>
+  
+  <link rel="stylesheet" type="text/css" href="/styles/app.css" />
+</head>
+<body>
+  <nav class="nav">
+    <section class="nav-left nav-section">
+      <h1 class="title primary-nav-item nav-item">
+        <a href="/">SiteFS</a>
+      </h1>
+    </section>
+
+    <section class="nav-right nav-section">
+      <div class="nav-item">
+        <a href="/docs" class="link">Docs</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="http://github.com/tal/sitefs" class="link">Github</a>
+      </div>
+    </section>
+  </nav>
+
+  <section class="container ">
+    <article class="documentation-page">
+  <h1>Templates</h1>
+
+<p>Templates go up the folder tree picking up any file named <code>_template.html.erb</code> starting with any sibling to the specified file.</p>
+
+<p>Starting with the template closest to the root the template will nest sub templates or rendered pages using the <code>&lt;%= yield %&gt;</code><br>
+method. You can also <code>yield :variable</code> to allow other templates to hoist values into their parent, documentation is in<br>
+<a href="/docs/render-context">render-context</a>.</p>
+
+<h2>Examples</h2>
+
+<p>Often the root template may be something like this <code>_layout.html.erb</code>:</p>
+
+<pre class="highlight highlight-erb"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">current_page</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;title&gt;</span><span class="cp">&lt;%=</span> <span class="n">current_page</span><span class="p">.</span><span class="nf">title</span> <span class="cp">%&gt;</span> | SiteFS<span class="nt">&lt;/title&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;title&gt;</span>SiteFS<span class="nt">&lt;/title&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"/styles/app.css"</span> <span class="nt">/&gt;</span>
+
+  <span class="cp">&lt;%=</span> <span class="n">yeild</span> <span class="ss">:head</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre>
+
+
+<p>Maybe everything inside of the docs folder should have a search bar <code>docs/_layout.html.erb</code>:</p>
+
+<pre class="highlight highlight-erb"><code><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"dac-sidebar"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"typeahead"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"doc-result"</span><span class="nt">&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+
+<p>This template would be rendered where the yield in the above template is called. Any pages<br>
+in the <code>docs</code> folder or below will be rendered into where the yield in this template is.</p>
+</article>
+
+  </section>
+
+  <section class="footer">
+    <div class="copyright">
+      The contents of this website are
+      © 2017 under the terms of the
+      <a href="https://github.com/tal/sitefs/blob/master/LICENSE">MIT License</a>.
+    </div>
+  </section>
+</body>
+
+</html>

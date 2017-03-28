@@ -1,0 +1,33 @@
+<h2 class="docs-section">
+  How-To Docs
+</h2>
+
+<section class="doc-links">
+  <% current_page.attributes.how_to_pages.each do |page| %>
+    <a class="doc-link" href="<%= page.path %>">
+      <div class="doc-title">
+        <%= page.title %>
+      </div>
+      <div class="doc-abstract">
+        <%= page.attributes['abstract'] %>
+      </div>
+    </a>
+  <% end %>
+</section>
+
+<h2 class="docs-section">
+  API Docs
+</h2>
+
+<section class="doc-links">
+  <% current_page.attributes.doc_pages.each do |page| %>
+    <a class="doc-link" href="<%= page.path %>">
+      <div class="doc-title">
+        <%= page.title %>
+      </div>
+      <div class="doc-abstract">
+        <%= page.attributes['abstract'] %>
+      </div>
+    </a>
+  <% end %>
+</section>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% if title %>
+    <title><%= title %> | SiteFS</title>
+  <% else %>
+    <title>SiteFS</title>
+  <% end %>
+  <link rel="stylesheet" type="text/css" href="/styles/app.css" />
+</head>
+<body>
+  <nav class="nav">
+    <section class="nav-left nav-section">
+      <h1 class="title primary-nav-item nav-item">
+        <a href="/">SiteFS</a>
+      </h1>
+    </section>
+
+    <section class="nav-right nav-section">
+      <div class="nav-item">
+        <a href="/docs" class="link">Docs</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="http://github.com/tal/sitefs" class="link">Github</a>
+      </div>
+    </section>
+  </nav>
+
+  <section class="container <%= yield :container_class %>">
+    <%= yield %>
+  </section>
+
+  <section class="footer">
+    <div class="copyright">
+      The contents of this website are
+      © <%= Time.now.year %> under the terms of the
+      <a href="https://github.com/tal/sitefs/blob/master/LICENSE">MIT License</a>.
+    </div>
+  </section>
+</body>
+
+</html>

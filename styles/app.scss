@@ -1,0 +1,242 @@
+@import './_normalize.scss';
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import './syntax/_zenburn';
+
+$family-primary: 'Inconsolata', monospace;
+$family-readable: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+
+$width: 928px;
+$color-orange: #ffa028;
+$color-primary: $color-orange;
+$color-background: #333;
+$color-light-bg: lighten($color-background, 10%);
+
+html {
+  background: $color-background;
+  color: white;
+  font-family: 'Inconsolata', monospace;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  max-width: $width;
+  margin: 0 auto;
+
+  .nav-section {
+    display: flex;
+  }
+
+  .nav-right {
+    .nav-item {
+      margin-left: 1em;
+      font-weight: bold;
+
+      font-size: 1.5em;
+    }
+
+    align-items: baseline;
+    margin-top: 0.8em;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 6em;
+  }
+
+  .link {
+    color: $color-primary;
+  }
+}
+
+.page-description {
+  width: 100%;
+  max-width: $width;
+  margin: 1em auto 0;
+  font-size: 38px;
+}
+
+.text {
+  font-family: $family-readable;
+  width: 100%;
+  max-width: $width;
+  margin: 1em auto;
+}
+
+.sample-fs {
+  background: $color-light-bg;
+  padding: 3px;
+
+  .sample-fs-code {
+    max-width: $width;
+    margin: 1em auto 0;
+    padding: 2em;
+  }
+
+  & > .sample-fs-line {
+    max-width: $width;
+    margin:  1em auto 0;
+    padding: 0 2em 1em;
+  }
+
+  .sample-fs-line {
+    font-family: $family-primary;
+    font-size: 1em;
+  }
+
+  .fs-line-content {
+    margin-bottom: 0.2em;
+  }
+
+  .fs-line-detail {
+    display: none;
+  }
+
+  .sample-fs-line > .sample-fs-line {
+    margin-left: 1em;
+  }
+}
+
+.details {
+  max-width: $width;
+  margin: 1em auto 0;
+
+  display: flex;
+
+  .detail {
+    max-width: $width / 3;
+    box-sizing: border-box;
+    padding: 1em;
+
+    &:nth-of-type(3n) {
+      padding-right: 0;
+    }
+
+    &:nth-of-type(3n-2) {
+      padding-left: 0;
+    }
+  }
+
+  .detail-title {
+    font-weight: bold;
+    font-size: 110%;
+    margin-bottom: 0.4em;
+    color: $color-primary;
+  }
+}
+
+.documentation-page {
+  max-width: $width;
+  margin: 0 auto;
+
+  font-family: $family-readable;
+
+  code {
+    font-family: $family-primary;
+    font-weight: bold;
+  }
+
+  h1,h2,h3,h4,h5 {
+    code {
+      border-left: 0.1em solid $color-orange;
+      // background: transparentize($color-orange, 0.7);
+      padding-left: 0.4em;
+    }
+  }
+
+  pre code {
+    border: 0;
+    background: transparent;
+  }
+
+  a {
+    color: $color-orange;
+  }
+
+  .highlight {
+    margin: 0 -20px;
+    padding: 15px 20px;
+  }
+
+  h3 code {
+    // font-weight: normal;
+  }
+
+  th {
+    text-align: left;
+    border-bottom: 3px solid $color-background;
+  }
+
+  th, td {
+    padding: 0 4px;
+  }
+
+  table {
+    background: $color-light-bg;
+    width: 100%;
+  }
+}
+
+.doc-links {
+  max-width: $width;
+  margin: 10px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  .doc-link {
+    display: block;
+    padding: 8px;
+    flex-basis: 210px;
+  }
+
+  .doc-title {
+    color: $color-orange;
+    font-weight: bold;
+    font-size: 140%;
+    margin-bottom: 5px;
+  }
+}
+
+.docs-section {
+  max-width: $width - 16px;
+  margin: 35px auto 0;
+  padding: 8px;
+}
+
+.section-title {
+  color: $color-orange;
+  max-width: $width;
+  margin: 20px auto;
+}
+
+.terminal-command {
+  max-width: $width;
+  margin: 0 auto;
+
+  .terminal-line {
+    &:before {
+      content: attr(data-path) ' $';
+      margin-right: 10px;
+      color: $color-orange;
+      display: inline-block;
+    }
+  }
+}
+
+.footer {
+  padding: 30px;
+  max-width: $width;
+  margin: 80px auto 0;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}

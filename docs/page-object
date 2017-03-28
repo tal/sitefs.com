@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Page object | SiteFS</title>
+  
+  <link rel="stylesheet" type="text/css" href="/styles/app.css" />
+</head>
+<body>
+  <nav class="nav">
+    <section class="nav-left nav-section">
+      <h1 class="title primary-nav-item nav-item">
+        <a href="/">SiteFS</a>
+      </h1>
+    </section>
+
+    <section class="nav-right nav-section">
+      <div class="nav-item">
+        <a href="/docs" class="link">Docs</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="http://github.com/tal/sitefs" class="link">Github</a>
+      </div>
+    </section>
+  </nav>
+
+  <section class="container ">
+    <article class="documentation-page">
+  <h1>Page object</h1>
+
+<h2>Used to programattically create</h2>
+
+<h2>Properties</h2>
+
+<h3><code>path</code></h3>
+
+<p>the full path for page starting with <code>/</code></p>
+
+<h3><code>path=</code></h3>
+
+<p>define the full location for the file relative to the root, always start with <code>/</code></p>
+
+<h3><code>href</code></h3>
+
+<p>the minimum file name relative to where it exists or is being generated. eg: for <code>/foo/bar</code> it will be <code>bar</code></p>
+
+<h3><code>href=</code></h3>
+
+<p>Common way when building pages dynamically to define it's name. eg setting to <code>index</code> from within a<br>
+ruby generator will make <code>index.html</code> in the same directory as the generator</p>
+
+<h3><code>tags</code></h3>
+
+<p>An array of strings that are every tag that the post has.</p>
+
+<h3><code>tags &lt;&lt; 'tag'</code></h3>
+
+<p>Add a tag to the post, if you prefix the tag with <code>_</code> it will not be included in <code>public_tags</code>. The purpose<br>
+for private tags is for interanl organization of pages that you don't want exposed.</p>
+
+<h3><code>public_tags</code></h3>
+
+<p>An array of all tags that don't start with <code>_</code>. Filters out any tags you may use for internal organization</p>
+
+<h3>
+<code>attributes.key</code> or <code>['key']</code>
+</h3>
+
+<p>Arbitrary values that can be stored in the page for later rendering or organization.</p>
+
+<h3><code>published_at</code></h3>
+
+<p>If a date is set the page will show up when querying for all tags. Useful to store drafts.</p>
+</article>
+
+  </section>
+
+  <section class="footer">
+    <div class="copyright">
+      The contents of this website are
+      © 2017 under the terms of the
+      <a href="https://github.com/tal/sitefs/blob/master/LICENSE">MIT License</a>.
+    </div>
+  </section>
+</body>
+
+</html>

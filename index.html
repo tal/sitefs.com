@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>SiteFS</title>
+  
+  <link rel="stylesheet" type="text/css" href="/styles/app.css" />
+</head>
+<body>
+  <nav class="nav">
+    <section class="nav-left nav-section">
+      <h1 class="title primary-nav-item nav-item">
+        <a href="/">SiteFS</a>
+      </h1>
+    </section>
+
+    <section class="nav-right nav-section">
+      <div class="nav-item">
+        <a href="/docs" class="link">Docs</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="http://github.com/tal/sitefs" class="link">Github</a>
+      </div>
+    </section>
+  </nav>
+
+  <section class="container ">
+    <h2 class="page-description">
+  SiteFS is a tool for building static websites however you want.
+</h2>
+
+<div class="text">
+  In it's simplest form it just lets you build pages from markdown or html inside
+  layouts. The file's destination is based on the source file. You can also use
+  ruby to build arbitrary pages whenever you run the generator.
+</div>
+
+<div class="sample-fs">
+  <div class="sample-fs-line">
+    <div class="fs-line-content">
+      mysite.com/
+    </div>
+
+    <div class="sample-fs-line">
+      <div class="fs-line-content">
+        blog/
+      </div>
+
+      <div class="sample-fs-line">
+        <div class="fs-line-content">_layout.md.html.erb</div>
+      </div>
+      <div class="sample-fs-line">
+        <div class="fs-line-content">tech-post.page.md</div>
+      </div>
+      <div class="sample-fs-line">
+        <div class="fs-line-content">welcome.page.md</div>
+      </div>
+    </div>
+
+    <div class="sample-fs-line">
+      <div class="fs-line-content">
+        gallery/
+      </div>
+
+      <div class="sample-fs-line">
+        <div class="fs-line-content">_gallery.html.erb</div>
+      </div>
+      <div class="sample-fs-line">
+        <div class="fs-line-content">vacation-pic1.jpg</div>
+      </div>
+      <div class="sample-fs-line">
+        <div class="fs-line-content">vacation-pic2.jpg</div>
+      </div>
+    </div>
+
+    <div class="sample-fs-line">
+      <div class="fs-line-content">
+        _layout.html.erb
+      </div>
+      <div class="fs-line-detail">
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;&lt;%= title %&gt; | SiteFS&lt;/title&gt;
+  &lt;link rel="stylesheet" type="text/css" href="/styles/app.css" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav class="nav"&gt;
+    &lt;section class="nav-left nav-section"&gt;
+      &lt;h1 class="title primary-nav-item nav-item"&gt;
+        &lt;a href="/"&gt;SiteFS&lt;/a&gt;
+      &lt;/h1&gt;
+    &lt;/section&gt;
+
+    &lt;section class="nav-right nav-section"&gt;
+      &lt;div class="nav-item"&gt;
+        &lt;a href="/docs" class="link"&gt;Docs&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;div class="nav-item"&gt;
+        &lt;a href="http://github.com/tal/sitefs" class="link"&gt;Github&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/nav&gt;
+
+  &lt;section class="container &lt;%= yield :container_class %&gt;"&gt;
+    &lt;%= yield %&gt;
+  &lt;/section&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+        </pre></code>
+      </div>
+    </div>
+    <div class="sample-fs-line">
+      <div class="fs-line-content">
+        index.html.erb
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="details">
+  <div class="detail">
+    <h3 class="detail-title">
+      Basic
+    </h3>
+    Using standard templates build pages from html fragments and have titles,
+    descriptions, and opengraph tags built for you.
+  </div>
+  <div class="detail">
+    <h3 class="detail-title">
+      Simple
+    </h3>
+    Build pages with markdown. Make your blog, documentaiton pages, or any
+    content with html. Using templates, labels, and other metadata build out
+    each section of your site how you want.
+  </div>
+
+  <div class="detail">
+    <h3 class="detail-title">
+      Powerful
+    </h3>
+    You can use ruby to build any kind of page you want, a collection of other pages,
+    an image gallery, or anything else.
+  </div>
+</div>
+
+<h3 class="section-title">
+  Installing
+</h3>
+
+<div class="sample-fs">
+  <div class="terminal-command"><code class="terminal-line">gem install sitefs</code></div>
+</div>
+
+
+<h3 class="section-title">
+  Running
+</h3>
+
+<div class="sample-fs">
+  <div class="terminal-command"><pre><code data-ath="~" class="terminal-line">mkdir mysite.com && cd mysite.com</code></pre></div>
+  <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">echo '&lt;%= yield %&gt;' > _layout.html.erb</code></pre></div>
+  <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">echo 'hello world' > index.page.html.erb</code></pre></div>
+  <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">echo '# Test Post\nPage' > post.page.md</code></pre></div>
+  <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">sitefs</code></pre></div>
+  <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-response">Listening to ~/mysite.com/
+  generate - index.html
+  generate - post/index.html
+about to start server on: http://127.0.0.1:8050
+[2017-03-26 20:42:46] INFO  WEBrick 1.3.1
+[2017-03-26 20:42:46] INFO  ruby 2.3.3 (2016-11-21) [x86_64-darwin16]
+[2017-03-26 20:42:46] INFO  WEBrick::HTTPServer#start: pid=24312 port=8050</code></pre></div>
+</div>
+
+<div class="text">
+  This starts up a server that watches the directory for builds. See <a href="/docs">docs</a> for more information
+  on how to setup your project.
+</div>
+
+  </section>
+
+  <section class="footer">
+    <div class="copyright">
+      The contents of this website are
+      © 2017 under the terms of the
+      <a href="https://github.com/tal/sitefs/blob/master/LICENSE">MIT License</a>.
+    </div>
+  </section>
+</body>
+
+</html>
