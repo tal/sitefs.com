@@ -24,7 +24,7 @@ file named `.sitefs-config.yml`.
 | `aws_s3_bucket` | | Bucket to upload the files to | |
 | `aws_access_key_id` | | Access key for using S3 api | |
 | `aws_secret_access_key` | | Secret key for using S3 api | |
-| `ignore_patterns` | | File patterns to not upload or build | [Link](...) |
+| `ignore_patterns` | | File patterns to not upload or build | [Link](https://github.com/tal/sitefs/blob/3f45831ea125a872105a25f89a4984b896cbdc9b/lib/sitefs/walker.rb#L40) |
 
 ### Index Format
 
