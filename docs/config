@@ -93,7 +93,7 @@ file named <code>.sitefs-config.yml</code>.</p>
 <td><code>ignore_patterns</code></td>
 <td></td>
 <td>File patterns to not upload or build</td>
-<td><a href="...">Link</a></td>
+<td><a href="https://github.com/tal/sitefs/blob/3f45831ea125a872105a25f89a4984b896cbdc9b/lib/sitefs/walker.rb#L40">Link</a></td>
 </tr>
 </tbody>
 </table>
@@ -108,22 +108,24 @@ served with other means you can build them into different formats.</p>
 <tr>
 <th>Format Key</th>
 <th>Description</th>
+<th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>all-index</code></td>
-<td>Unless it's an index file create a new folder with <code>filename/index.html</code>
-</td>
+<td>Unless it's an index file create a new folder</td>
+<td><code>filename/index.html</code></td>
 </tr>
 <tr>
 <td><code>github</code></td>
-<td>Creates <code>filename.html</code>, github pages allows these urls to be accessed simply</td>
+<td>Creates file with extension, github pages allows these urls to be accessed simply</td>
+<td><code>filename.html</code></td>
 </tr>
 <tr>
 <td><code>aws</code></td>
-<td>Creates a file without the extension <code>filename</code>
-</td>
+<td>Creates a file without the extension</td>
+<td><code>filename</code></td>
 </tr>
 </tbody>
 </table>

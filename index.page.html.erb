@@ -8,6 +8,11 @@
   ruby to build arbitrary pages whenever you run the generator.
 </div>
 
+<div class="text">
+  Any file with `.page` in the name will generate html files for you. You can even use code to
+  have one file programattically make many pages.
+</div>
+
 <div class="sample-fs">
   <div class="sample-fs-line">
     <div class="fs-line-content">
@@ -100,26 +105,27 @@
 <div class="details">
   <div class="detail">
     <h3 class="detail-title">
-      Basic
+      Control
     </h3>
-    Using standard templates build pages from html fragments and have titles,
-    descriptions, and opengraph tags built for you.
+    Using html, markdown, or ruby you can make your static site be whatever you want. The folder strucute
+    becomes your site's structure. Flexible templating lets each of these pages look as similar or unique
+    as you want.
   </div>
   <div class="detail">
     <h3 class="detail-title">
-      Simple
+      Tools and Sync
     </h3>
-    Build pages with markdown. Make your blog, documentaiton pages, or any
-    content with html. Using templates, labels, and other metadata build out
-    each section of your site how you want.
+    Regardless of the file server tools will watch and serve up files for you. Put your credentials in and
+    it will sync all changes up to AWS S3 for you.
   </div>
 
   <div class="detail">
     <h3 class="detail-title">
-      Powerful
+      Simple
     </h3>
-    You can use ruby to build any kind of page you want, a collection of other pages,
-    an image gallery, or anything else.
+    Make a new html or markdown file in a folder and boom, the new page will be there. A new file will be
+    rendered into a provided layout. Each section of your site can have its own template, or inherit the
+    parent or root one.
   </div>
 </div>
 
@@ -137,7 +143,7 @@
 </h3>
 
 <div class="sample-fs">
-  <div class="terminal-command"><pre><code data-ath="~" class="terminal-line">mkdir mysite.com && cd mysite.com</code></pre></div>
+  <div class="terminal-command"><pre><code data-path="~" class="terminal-line">mkdir mysite.com && cd mysite.com</code></pre></div>
   <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">echo '&lt;%= yield %&gt;' > _layout.html.erb</code></pre></div>
   <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">echo 'hello world' > index.page.html.erb</code></pre></div>
   <div class="terminal-command"><pre><code data-path="~/mysite.com" class="terminal-line">echo '# Test Post\nPage' > post.page.md</code></pre></div>
